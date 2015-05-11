@@ -1,0 +1,14 @@
+<html>
+	<head>
+		{% if title %}
+		<title>{{ title }} - Find a Bathroom</title>
+		{% else %}
+		<title>Looks like you need to Pee</title>
+		{% endif %}
+	</head>
+	<body>
+		<div>Microblog: <a href="/index">Home</a></div>
+		<hr>
+		{% block content %}{% endblock %}
+	</body>
+</html>
