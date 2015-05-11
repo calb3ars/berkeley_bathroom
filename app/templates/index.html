@@ -1,14 +1,26 @@
 <html>
 	<head>
-		<title>{{ title }} - Berkeley Bathroom Finder</title>
+		{% if title %}
+			<title>{{ title }} - Berkeley Bathroom Finder</title>
+			<title>Welcome to Berkeley Bathroom Finder</title>
+		{% endif %}
 	</head>
 	<body>
 		<h1>Hello, {{ user.nickname }}!</h1>
-		<p>
-			Berkeley Bathroom Finder was created by Lauren Che and Andrew Jiang.
-		</p>
-		<p>
-			Andrew's favorite place to pee on campus is North Doe Library. Lauren declined to answer.
-		</p>
+		{% for review in reviews %}
+			<div>
+				<p>
+					<b>{{ review.user.nickname }}</b> says: <em>{{ review.review }}</em>
+				</p>
+			</div>
+		{% endfor %}	
+		
+		<h2>About Berkeley Bathroom Finder</h2>
+			<p>
+				Berkeley Bathroom Finder was created by Lauren Che and Andrew Jiang.
+			</p>
+			<p>
+				Andrew's favorite place to pee on campus is North Doe Library. Lauren declined to answer.
+			</p>
 	</body>
 </html>

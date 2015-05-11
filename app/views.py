@@ -5,10 +5,28 @@ from app import app
 @app.route('/index') #map /index file
 def index():
 	user = {'nickname': 'Little Tinkler'} #fake user
-	return render_template('index.html',
-				title='Welcome',
-				user=user)
-
+	reviews = [
+		{
+			'user': {'nickname': 'Lost in Dwinelle'},
+			'review': 'I can\'t find a restroom in this d*mn place!'
+		},
+		{
+			'user': {'nickname': 'Moaning Myrtle'},
+			'review': 'Watch out for the basilisk'
+		},
+		{
+			'user': {'nickname': 'John Doe'},
+			'review': 'I like a view when I pee'
+		},
+		{
+			'user': {'nickname': 'This is the Wurster'},
+			'review': 'This is actually the best'
+		}
+	]
+	return render_template("index.html",
+				title='Let\'s Pee!',
+				user=user,
+				reviews=reviews)
 
 #you can change the URL based on variables
 #@app.route('/user/<username>')
