@@ -1,10 +1,10 @@
-from flask import render_template
+from flask import render_template #function to load template from Flask framework
 from app import app
 
-@app.route('/')
-@app.route('/index')
+@app.route('/') #map / file
+@app.route('/index') #map /index file
 def index():
-	user = {'nickname': 'Little Tinkler'}
+	user = {'nickname': 'Little Tinkler'} #fake user
 	return render_template('index.html',
 				title='Welcome',
 				user=user)
