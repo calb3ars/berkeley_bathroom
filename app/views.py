@@ -1,5 +1,6 @@
 from flask import render_template #function to load template from Flask framework
 from app import app
+from .forms import LoginForm
 
 @app.route('/') #map / file
 @app.route('/index') #map /index file
@@ -27,6 +28,13 @@ def index():
 				title='Let\'s Pee!',
 				user=user,
 				posts=posts)
+
+@app.route ('/login', methods=['GET', 'POST'])
+def login():
+	form = LoginForm()
+	return render_template('login.html',
+							title='Sign In',
+							form=form)
 
 #you can change the URL based on variables
 #@app.route('/user/<username>')
