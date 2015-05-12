@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect #function to load template from Flask framework
 from app import app
-from .forms import LoginForm
+from .forms import LoginForm, ReviewForm
 
 @app.route('/') #map / file
 @app.route('/index') #map /index file
@@ -40,6 +40,15 @@ def login():
 							title='Sign In',
 							form=form,
 							providers=app.config['OPENID_PROVIDERS'])
+
+@app.route('/submit_review', methods=['GET', 'POST'])
+def review():
+        form = ReviewForm()
+        if form.validate_on_submit():
+                flash('Successfully submitted review')
+                return redirect('/index')
+        return render_template('submit_review.html', title='Submit a Review', form=form)
+        
 
 #you can change the URL based on variables
 #@app.route('/user/<username>')
