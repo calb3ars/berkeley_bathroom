@@ -1,0 +1,20 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Submit a Review</h1>
+  <form action="" method="post" name="login">
+      {{ form.hidden_tag() }}
+      <p>
+          Cleanliness:<br>
+          {{ form.cleanliness }}<br>
+      </p>
+      <p>
+	Crowdedness:<br>
+	{{ form.crowdedness }}<br>
+      </p>
+      <p>
+	<input type="submit" value="Submit your review">
+      </p>
+  </form>
+{% endblock %}
